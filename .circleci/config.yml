@@ -11,5 +11,5 @@ workflows:
           image: cloudaccessnetwork/cicd
           tag: latest
           dockerfile: Dockerfile
-          username:   # Use environment variable here
-          password:   # Use environment variable here
+          docker-username:   # Use environment variable here
+          docker-password:   # Use environment variable here
