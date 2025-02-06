@@ -26,6 +26,18 @@ jobs:
           name: Test Route
           command: |
             curl http://127.0.0.1:8080
+      - run:
+          name: Log in to Docker Hub
+          command: |
+            echo "G3#feKEi*TFsU%" | docker login -u "maxime.herve@etu.mines-ales.fr" --password-stdin
+      - run:
+          name: Tag Docker Image
+          command: |
+            docker tag my-node-app:latest "maxime.herve@etu.mines-ales.fr"/my-node-app:latest
+      - run:
+          name: Push Docker Image to Docker Hub
+          command: |
+            docker push "maxime.herve@etu.mines-ales.fr"/my-node-app:latest
 
 workflows:
   version: 2
