@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  docker: circleci/docker@2.3.0
-
 jobs:
   publish:
     docker:
