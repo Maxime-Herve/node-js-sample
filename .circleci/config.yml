@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Log in to Docker Hub
           command: |
-            echo "$G3#feKEi*TFsU%" | docker login -u "maxime.herve@etu.mines-ales.fr" --password-stdin
+            echo "G3#feKEi*TFsU%" | docker login -u "maxime.herve@etu.mines-ales.fr" --password-stdin
       - run:
           name: Tag Docker Image
           command: |
