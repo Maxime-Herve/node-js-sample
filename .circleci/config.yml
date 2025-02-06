@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Kill and Remove All Docker Containers
           command: |
-            docker kill my-node-app-container
+            docker ps
       - run:
           name: Build Docker Image
           command: |
