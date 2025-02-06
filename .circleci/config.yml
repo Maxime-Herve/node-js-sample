@@ -25,7 +25,7 @@ jobs:
       - run:
           name: echo mdp
           command: |
-            echo $MDP
+            echo "$MDP"
       - run:
           name: Log in to Docker Hub
           command: |
