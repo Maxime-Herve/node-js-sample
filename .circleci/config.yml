@@ -8,6 +8,11 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Kill and Remove All Docker Containers
+          command: |
+            docker kill $(docker ps -q) || true
+            docker rm $(docker ps -a -q) || true
+      - run:
           name: Build Docker Image
           command: |
             docker build -t my-node-app:latest .
