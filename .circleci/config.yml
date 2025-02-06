@@ -11,7 +11,7 @@ jobs:
       - checkout
       - docker/login:
           username: $MYUSERNAME
-          password:
+          password: $MYPASSWORD
       - docker/build:
           image: cloudaccessnetwork/cicd
           tag: latest
