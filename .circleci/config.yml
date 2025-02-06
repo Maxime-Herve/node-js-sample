@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Tag Docker Image
           command: |
-            docker tag my-node-app:latest cloudaccessnetwork/cicd:latest
+            docker tag cicd:latest cloudaccessnetwork/cicd:latest
       - run:
           name: Push Docker Image to Docker Hub
           command: |
