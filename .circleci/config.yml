@@ -10,5 +10,5 @@ workflows:
       - docker/publish:
           image: cloudaccessnetwork/cicd
           tag: latest
-          dockerfile: Dockerfile
+          docker-username: MYUSERNAME
           docker-password: MYPASSWORD
