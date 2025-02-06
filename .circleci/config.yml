@@ -1,4 +1,4 @@
-version: 2.1
+*version: 2.1
 
 orbs:
   docker: circleci/docker@2.3.0
@@ -17,8 +17,8 @@ jobs:
       - docker/push:
           image: cloudaccessnetwork/cicd
           tag: latest
-          username: $MYUSERNAME
-          password: $MYPASSWORD
+          username: $USR
+          password: $SECRET
 
       - run:
           name: Run Docker Container
