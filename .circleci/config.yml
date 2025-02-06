@@ -23,13 +23,9 @@ jobs:
           command: |
             curl http://127.0.0.1:8080
       - run:
-          name: echo mdp
-          command: |
-            echo "$MDP"
-      - run:
           name: Log in to Docker Hub
           command: |
-            echo "$MDP" | docker login -u "maxime.herve@etu.mines-ales.fr" --password-stdin
+            echo "$G3#feKEi*TFsU%" | docker login -u "maxime.herve@etu.mines-ales.fr" --password-stdin
       - run:
           name: Tag Docker Image
           command: |
