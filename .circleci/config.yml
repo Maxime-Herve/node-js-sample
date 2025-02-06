@@ -10,20 +10,12 @@ jobs:
     steps:
       - checkout
 
-      - docker/build:
+      - docker/publish:
           image: cloudaccessnetwork/cicd
           tag: latest
-
-      - docker/push:
-          image: cloudaccessnetwork/cicd
-          tag: latest
-          username: $USR
-          password: $SECRET
-
-      - run:
-          name: Run Docker Container
-          command: |
-            docker run -d -p 8080:8080 --name my-node-app-container cloudaccessnetwork/cicd:latest
+          dockerfile: Dockerfile
+          username: $MYUSERNAME
+          password: $MYPASSWORD
 
 workflows:
   version: 2
