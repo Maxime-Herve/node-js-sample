@@ -9,10 +9,9 @@ jobs:
       image: ubuntu-2204:current
     steps:
       - checkout
-      - run:
-          name: Log in to Docker Hub
-          command: |
-            echo "$MYPASSWORD" | docker login -u "$MYUSERNAME" --password-stdin
+      - docker/login:
+          username: $MYUSERNAME
+          password:
       - docker/build:
           image: cloudaccessnetwork/cicd
           tag: latest
