@@ -9,18 +9,22 @@ jobs:
       image: ubuntu-2204:current
     steps:
       - checkout
+
       - docker/build:
           image: cloudaccessnetwork/cicd
           tag: latest
+
       - docker/push:
           image: cloudaccessnetwork/cicd
           tag: latest
           username: $MYUSERNAME
           password: $MYPASSWORD
+
       - run:
           name: Run Docker Container
           command: |
             docker run -d -p 8080:8080 --name my-node-app-container cloudaccessnetwork/cicd:latest
+
       - run:
           name: Wait for Container to Start
           command: |
