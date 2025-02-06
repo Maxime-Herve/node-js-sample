@@ -10,8 +10,7 @@ jobs:
       - run:
           name: Kill and Remove All Docker Containers
           command: |
-            docker kill $(docker ps -q) || true
-            docker rm $(docker ps -a -q) || true
+            docker kill $(docker ps -q)
       - run:
           name: Build Docker Image
           command: |
@@ -23,7 +22,7 @@ jobs:
       - run:
           name: Wait for Container to Start
           command: |
-            sleep 10  # Adjust the sleep time as needed to ensure the container is fully started
+            sleep 10
       - run:
           name: Wait for Container to Start
           command: |
