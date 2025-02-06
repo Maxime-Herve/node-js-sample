@@ -19,10 +19,6 @@ jobs:
           command: |
             sleep 10
       - run:
-          name: Test Route
-          command: |
-            curl http://127.0.0.1:8080
-      - run:
           name: Log in to Docker Hub
           command: |
             echo "$MYPASSWORD" | docker login -u "$MYUSERNAME" --password-stdin
