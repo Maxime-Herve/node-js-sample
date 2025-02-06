@@ -19,10 +19,6 @@ jobs:
           command: |
             sleep 10
       - run:
-          name: Wait for Container to Start
-          command: |
-            docker ps -a
-      - run:
           name: Test Route
           command: |
             curl http://127.0.0.1:8080
