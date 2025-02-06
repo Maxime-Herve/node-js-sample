@@ -6,8 +6,6 @@ jobs:
       - image: circleci/buildpack-deps:stretch
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 27.5.1
       - run:
           name: Build Docker Image
           command: |
