@@ -9,11 +9,11 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t my-node-app:latest .
+            docker build -t cicd:latest .
       - run:
           name: Run Docker Container
           command: |
-            docker run -d -p 8080:8080 --name my-node-app-container my-node-app:latest
+            docker run -d -p 8080:8080 --name my-node-app-container cicd:latest
       - run:
           name: Wait for Container to Start
           command: |
@@ -33,11 +33,11 @@ jobs:
       - run:
           name: Tag Docker Image
           command: |
-            docker tag my-node-app:latest "maxime.herve@etu.mines-ales.fr"/my-node-app:latest
+            docker tag my-node-app:latest cloudaccessnetwork/cicd:latest
       - run:
           name: Push Docker Image to Docker Hub
           command: |
-            docker push "maxime.herve@etu.mines-ales.fr"/my-node-app:latest
+            docker push cloudaccessnetwork/cicd:latest
 
 workflows:
   version: 2
