@@ -1,38 +1,32 @@
 version: 2.1
 
+orbs:
+  docker: circleci/docker@2.2.0
+
 jobs:
   build:
     machine:
       image: ubuntu-2204:current
     steps:
       - checkout
-      - run:
-          name: Build Docker Image
-          command: |
-            docker build -t cicd:latest .
+      - docker/build:
+          image: cloudaccessnetwork/cicd
+          tag: latest
+      - docker/push:
+          image: cloudaccessnetwork/cicd
+          tag: latest
       - run:
           name: Run Docker Container
           command: |
-            docker run -d -p 8080:8080 --name my-node-app-container cicd:latest
+            docker run -d -p 8080:8080 --name my-node-app-container cloudaccessnetwork/cicd:latest
       - run:
           name: Wait for Container to Start
           command: |
             sleep 10
-      - run:
-          name: Log in to Docker Hub
-          command: |
-            echo "$MYPASSWORD" | docker login -u "$MYUSERNAME" --password-stdin
-      - run:
-          name: Tag Docker Image
-          command: |
-            docker tag cicd:latest cloudaccessnetwork/cicd:latest
-      - run:
-          name: Push Docker Image to Docker Hub
-          command: |
-            docker push cloudaccessnetwork/cicd:latest
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - build
+
