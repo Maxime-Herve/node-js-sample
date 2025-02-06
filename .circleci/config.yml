@@ -20,6 +20,10 @@ jobs:
           command: |
             sleep 10  # Adjust the sleep time as needed to ensure the container is fully started
       - run:
+          name: Wait for Container to Start
+          command: |
+            docker ps -a
+      - run:
           name: Test Route
           command: |
             curl --retry 5 --retry-connrefused http://localhost:8080
