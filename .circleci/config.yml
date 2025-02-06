@@ -25,11 +25,6 @@ jobs:
           command: |
             docker run -d -p 8080:8080 --name my-node-app-container cloudaccessnetwork/cicd:latest
 
-      - run:
-          name: Wait for Container to Start
-          command: |
-            sleep 10
-
 workflows:
   version: 2
   build_and_deploy:
